@@ -13,30 +13,88 @@
 
 	int main()
 	{
-		int randnum, num = 0, attemptsCount = 1;
+		int randnum, guess = 0, attemptsCount = 1, min = 0, max = 100;
+		bool valid;
 
 		randnum = (rand() % 100 + 1);
 
+
+		cout << "\n\n\tYou have 6 attemps to get the random number...Good luck!";
+
 		for (int i = 0; i <= 5; i++)
 		{
-			cout << "\n\n\tPlease enter a number between 0 and 100: ";
-			cin >> num;
+			cout << "\n\n\tPlease enter a number between: " << min << " and " << max << ": ";
+			cin >> guess;
+			valid = false;
 
-			if (num == randnum)
+			if (cin.fail())
 			{
-				cout << "\n\n\tYou have guessed the random number!!!";
+				cout << "\n\n\tInvalid input, Please make sure to enter a number";
+				cout << "\n\n\tPress any key to continue";
+				_getch();
+				cin.clear();
+			}
+
+			else if (guess < 1 || guess > 100)
+			{
+				cout << "\n\n\tInvalid input, Please enter a number between 1 and 100";
+				cout << "\n\n\tPress any key to continue";
+				_getch();
+				system("cls");
+				cin.clear();
 			}
 
 			else
 			{
-				if (num != randnum)
-				{
-					cout << "\n\n\tThe number is between 0 and: " << num;
-				}
+				valid = true;
 			}
 
+			cin.ignore(80, '\n');
+
+		while (!valid);
+
+			if (guess == randnum)
+			{
+				cout << "\n\n\tYou have guessed the random number!!!";
+				cout << "\n\n\tPress any key to continue...";
+
+			}
+
+			else if (guess < randnum)
+			{
+				cout << "\n\n\tThe random number is bigger than: " << guess;
+			}
+
+			else
+			{
+				cout << "\n\n\tThe random number is smaller than: " << guess;
+			}
 		}
 
+		if (guess > 6)
+		{
+			cout << "\n\n\tYou failed to get the random number! The random number was: " << randnum;
+		}
+		_getch();
 		return 0;
-}
+} 
+		
+		
+	
+	
+	
+		
+	
+	
+	
+
+		
+		
+	
+	
+	
+		
+
+ 
+
 
