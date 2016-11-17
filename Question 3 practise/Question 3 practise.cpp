@@ -26,16 +26,19 @@
 			cout << "\n\n\tPlease enter a number between: " << min << " and " << max << ": ";
 			cin >> guess;
 			valid = false;
+			
 
 			if (cin.fail())
 			{
-				cout << "\n\n\tInvalid input, Please make sure to enter a number";
+				cout << "\n\n\tInvalid input, Please make sure to enter a number";   //When I enter an invalid input it tells me that its 
+																				//invalid however I dont have the option to re-enter another input
 				cout << "\n\n\tPress any key to continue";
 				_getch();
+				system("cls");
 				cin.clear();
+				
 			}
-
-			else if (guess < 1 || guess > 100)
+			else if (guess < 1 || guess > 100)   //same happens here the program doesnt go back to let me re-enter
 			{
 				cout << "\n\n\tInvalid input, Please enter a number between 1 and 100";
 				cout << "\n\n\tPress any key to continue";
